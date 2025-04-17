@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+  --bg-color: #f5f5f5;         /* light gray background */
+  --text-color: #1a1a1a;       /* deep charcoal text */
+  --accent-color: #4a4a4a;     /* medium gray for accents */
+  --card-bg: #ffffff;          /* white cards */
+  --font-primary: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+main {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+nav a {
+  text-decoration: none;
+  background-color: var(--accent-color);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #2e2e2e;
+}
+
+header, main, footer {
+  padding: 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+.projects, .experience, .education {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects, .experience, .education {
+    flex-direction: column;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 0.8rem;
+  margin-top: 2rem;
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+h1 {
+  margin: 0;
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--accent-color);
+  color: white;
+}
+
+main p {
+  font-size: 1.2rem;
+  text-align: center;
+}
