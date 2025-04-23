@@ -1,0 +1,126 @@
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(56, 1, 1);
+}
+
+nav{
+  display: flex;
+  gap: 30px;
+}
+
+.tooltip{
+  position: relative;
+  display: inline-block;
+}
+
+.text1, .text2, .text3 {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 40px;
+  font-weight: bold;
+  border: none;
+  overflow: hidden;
+  z-index: 0;
+  transition: transform 0.3s ease;
+}
+
+.text1::before, .text2::before, .text3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(92.83deg, red 0%, darkred 100%);
+  z-index: -2;
+  transition: background 0.4s ease-in-out;
+  border-radius: inherit;
+}
+
+.text1::after, .text2::after, .text3::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+  border-radius: inherit;
+}
+
+/* Hover effects */
+.text1:hover, .text2:hover, .text3:hover {
+  transform: scale(1.05);
+}
+
+.text1:hover::before, .text2:hover::before, .text3:hover::before {
+  background: linear-gradient(to right, orange, orangered);
+}
+
+.text1:hover::after, .text2:hover::after, .text3:hover::after {
+  opacity: 0;
+}
+
+
+.tooltip-text1, .tooltip-text2, .tooltip-text3{
+  visibility: hidden;
+  position: absolute;
+  bottom: 110%;
+  opacity: 0;
+  background-color: rgb(175, 0, 0);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  text-align: center;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.text1:hover + .tooltip-text1{
+  visibility: visible;
+  opacity: 1;
+}
+
+.text2:hover + .tooltip-text2{
+  transform: translateX(-50%) translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.text3:hover + .tooltip-text3{
+  transform: translateX(-50%) scale(1);
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* 1. Fade In */
+.tooltip-text1 {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 2. Slide from Bottom */
+.tooltip-text2 {
+  transform: translateX(-50%) translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 3. Zoom In */
+.tooltip-text3 {
+  transform: translateX(-50%) scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
